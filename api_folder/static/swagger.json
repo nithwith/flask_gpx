@@ -1,0 +1,78 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "GPX Flask",
+    "version": "1.0.0",
+    "title": "GPX Flask",
+    "contact": {
+      "email": "nithwith@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "paths": {
+    "/rides": {
+      "get": {
+        "tags": [
+          "Rides Request"
+        ],
+        "summary": "Returns rides",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ride Request"
+        ],
+        "summary": "Create a new ride request system",
+        "requestBody": {
+          "description": "Ride Request Post Object",
+          "required": true
+        }
+      }
+    },
+      "/ride/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the ride",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Ride Request"
+          ],
+          "summary": "Get ride request with given ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "Ride Request id"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Failed. Misunderstood Request."
+            },
+            "404": {
+              "description": "Failed. Ride request not found."
+            }
+          }
+        }
+      }
+    }
+  }
+
+

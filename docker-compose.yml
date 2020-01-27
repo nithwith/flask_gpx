@@ -1,0 +1,19 @@
+version: '3'  # version of compose format
+
+services:
+  api-service:
+    build: ./api_folder  # path is relative to docker-compose.yml localtion
+    volumes:
+      - ./api_folder:/usr/src/app # mount point
+    ports:
+      - 5003:80  # host:container
+
+  # front-service:
+  #   image: php:apache  # pulling image from DockerHub
+  #   volumes:
+  #     - ./front_folder:/var/www/html # mount
+  #   ports:
+  #     - 5002:80  # host:container
+  #   depends_on:
+  #     - api-service  # website is not going to work
+                             # unless observatory-service is running
